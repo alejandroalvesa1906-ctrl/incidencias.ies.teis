@@ -15,6 +15,15 @@
 
 Recibe peticiones HTTP y devuelve recursos al navegador
 
+## crear repositorio en git
+
+1. `git init`
+
+2. `git add . `
+
+3. `git commit -m "commit inicial con readme y página principal con formulario web"`
+
+
 ## Proceso de instalación  / Puesta en marcha
 
 1. Actualizar el sistema
@@ -44,7 +53,39 @@ sudo chmod -R u=rwX,go=rX /var/www/html
 ```
 6. crear el html de la página de incidencias
 
+## instalar el mysql server
 
+``` bash 
+sudo apt install mysql-server
+```
 
 
 ## creación de bases de datos
+``` bash 
+sudo apt install mysql-server
+```
+## configuración SQL
+``` bash 
+sudo mysql
+```
+``` bash 
+
+create database incidencias;
+create user "incidencias"@"localhost" identified by "incidencias";
+grant all privileges on incidencias.* to "incidencias"@"localhost";
+flush privileges;
+```
+## crear tablas 
+
+``` bash 
+
+use incidencias
+
+create table registro( id int auto_increment primary key, 
+aula varchar(30), 
+descripcion text, 
+usuario varchar (20), 
+estado varchar (20) );
+
+```
+
