@@ -23,6 +23,8 @@ Recibe peticiones HTTP y devuelve recursos al navegador
 
 3. `git commit -m "commit inicial con readme y página principal con formulario web"`
 
+4. iniciar sesion para usar el copilot de VS
+
 
 ## Proceso de instalación  / Puesta en marcha
 
