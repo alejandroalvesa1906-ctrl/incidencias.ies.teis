@@ -91,3 +91,80 @@ estado varchar (20) );
 
 ```
 
+## instalar pythom
+
+`sudo aot update`
+`sudo apt install python3 python3-pip python3-venv -y`
+
+## crear el entorno virtual
+
+`python3 -m venv venv`
+`source /var/www/incidencias.ies.teis/venv/bin/activate`
+
+## instalar flask , conector base de datos, comprobar y guardar dependecias
+
+``` bash
+
+pip install flask
+pip install mysql-conector-python
+pip list 
+pip freeze > requirements.txt
+
+```
+
+## usar flask cada inicio
+
+Ddesde la terminal dentro del directorio incidencias
+
+ `source venv/bin/activate`
+ `python app.py` iniciar app
+
+ ctrol + C para terminar app 
+ deactivate para salir del entorno
+
+ ## Hacer aplicación Python/Flask
+
+ 1. crear archivo app.py 
+   
+``` python
+ from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def inicio():
+    return render_template('index.html')
+    if __name__ == '__main__':
+    app.run(debug=True)
+```
+2. probamos la app
+   
+`python3 app.py`
+
+3. para entrar a la web `http://incidencias.ies.teis:5000/`
+4. pasar formulario a python flask
+5. cambiar la app 
+   
+``` python 
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route('/')
+def inicio():
+    return render_template('index.html')
+@app.route('/incidencia', methods=['POST'])
+def crear_incidencia():
+
+     aula = request.form['aula']
+     usuario = request.form['usuario']
+     descripcion = request.form['descripcion']
+
+     print("aula:" + aula)
+     print("usuario:" + usuario)
+     print("descripcion:" + descripcion)
+
+     return "Incidencia recibida"
+if __name__ == '__main__':
+    app.run(debug=True)
+    ```
