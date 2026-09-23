@@ -15,13 +15,15 @@
 
 Recibe peticiones HTTP y devuelve recursos al navegador
 
-## crear repositorio en git
+## crear repositorio en git y actualizar
 
 1. `git init`
 
 2. `git add . `
 
 3. `git commit -m "commit inicial con readme y página principal con formulario web"`
+
+4. `git push` para subir archivos
 
 4. iniciar sesion para usar el copilot de VS
 
@@ -147,7 +149,7 @@ def inicio():
    
 ``` python 
 from flask import Flask, render_template, request
-
+import mysql.connector
 app = Flask(__name__)
 
 @app.route('/')
@@ -164,7 +166,10 @@ def crear_incidencia():
      print("usuario:" + usuario)
      print("descripcion:" + descripcion)
 
-     return "Incidencia recibida"
+     return "<h1> Incidencia recibida </h1> <ul> <li>Aula:"+ aula +"</li></ul>"
 if __name__ == '__main__':
     app.run(debug=True)
-    ```
+    
+ ```
+## manual para conectar la base de datos 
+1. añadir `import mysql.connector`
